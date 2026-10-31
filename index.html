@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>⚡ ASCEND 4.0 — The Ultimate Personal Evolution System</title>
+  <meta name="description" content="YOUR LIFE. YOUR EVOLUTION. Featuring ALYA (Advanced Life Assistant). Personal productivity, fitness, learning, and RPG gamification application.">
+
+  <!-- Fonts: Orbitron, Rajdhani, Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@500;700;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Core Design System -->
+  <link rel="stylesheet" href="/css/ascend.css">
+
+  <!-- Three.js 3D WebGL Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+  <div class="ascend-app">
+    <!-- ======================================================================
+         SIDEBAR NAVIGATION (All 31 Required Sections Organized Beautifully)
+         ====================================================================== -->
+    <aside class="ascend-sidebar">
+      <div class="sidebar-header">
+        <a class="brand-logo" onclick="window.app.navigate('dashboard')">
+          <div class="brand-glyph"></div>
+          <div>
+            <div class="brand-title">ASCEND</div>
+            <div class="brand-tagline">YOUR EVOLUTION</div>
+          </div>
+        </a>
+        <button style="background:transparent; border:none; color:var(--text-muted); cursor:pointer; font-size:16px;" onclick="window.app.toggleSidebar()" title="Toggle Sidebar">☰</button>
+      </div>
+
+      <div class="sidebar-scroll">
+        <!-- 1. Command & Dashboard -->
+        <div class="nav-group-label">Command Center</div>
+        <ul class="nav-list">
+          <li class="nav-item active" data-route="dashboard" onclick="window.app.navigate('dashboard')">
+            <span class="nav-icon">⚡</span><span>1. Dashboard</span>
+          </li>
+          <li class="nav-item" data-route="player" onclick="window.app.navigate('player')">
+            <span class="nav-icon">👤</span><span>2. Profile</span>
+          </li>
+          <li class="nav-item" data-route="life-command" onclick="window.app.navigate('life-command')">
+            <span class="nav-icon">🎯</span><span>3. Life Command Center</span>
+          </li>
+        </ul>
+
+        <!-- 2. Fitness & Physical Evolution -->
+        <div class="nav-group-label">Physical Evolution</div>
+        <ul class="nav-list">
+          <li class="nav-item" data-route="gym" onclick="window.app.navigate('gym')">
+            <span class="nav-icon">🏋️</span><span>4. Gym</span>
+          </li>
+          <li class="nav-item" data-route="exercises" onclick="window.app.navigate('exercises')">
+            <span class="nav-icon">📚</span><span>5. Exercise Library</span>
+          </li>
+          <li class="nav-item" data-route="gym" onclick="window.app.navigate('gym')">
+            <span class="nav-icon">📋</span><span>6. Workout Planner</span>
+          </li>
+          <li class="nav-item" data-route="running" onclick="window.app.navigate('running')">
+            <span class="nav-icon">🏃</span><span>7. Running Tracker</span>
+          </li>
+          <li class="nav-item" data-route="walking" onclick="window.app.navigate('walking')">
+            <span class="nav-icon">🚶</span><span>8. Walking Tracker</span>
+          </li>
+          <li class="nav-item" data-route="cycling" onclick="window.app.navigate('cycling')">
+            <span class="nav-icon">🚴</span><span>9. Cycling Tracker</span>
+          </li>
+          <li class="nav-item" data-route="running" onclick="window.app.navigate('running')">
+            <span class="nav-icon">📊</span><span>10. Activity History</span>
+          </li>
+        </ul>
+
+        <!-- 3. Daily Execution & Quests -->
+        <div class="nav-group-label">Execution & Quests</div>
+        <ul class="nav-list">
+          <li class="nav-item" data-route="calendar" onclick="window.app.navigate('calendar')">
+            <span class="nav-icon">⏱️</span><span>11. Schedule</span>
+          </li>
+          <li class="nav-item" data-route="calendar" onclick="window.app.navigate('calendar')">
+            <span class="nav-icon">📅</span><span>12. Calendar</span>
+          </li>
+          <li class="nav-item" data-route="tasks" onclick="window.app.navigate('tasks')">
+            <span class="nav-icon">✅</span><span>13. Tasks</span>
+            <span class="nav-badge" id="sidebar-tasks-badge">5</span>
+          </li>
+          <li class="nav-item" data-route="habits" onclick="window.app.navigate('habits')">
+            <span class="nav-icon">🔥</span><span>14. Habit Tracker</span>
+          </li>
+          <li class="nav-item" data-route="quests" onclick="window.app.navigate('quests')">
+            <span class="nav-icon">⚔️</span><span>15. Daily Quests</span>
+            <span class="nav-badge">2</span>
+          </li>
+          <li class="nav-item" data-route="weekly-missions" onclick="window.app.navigate('weekly-missions')">
+            <span class="nav-icon">🎖️</span><span>16. Weekly Missions</span>
+          </li>
+        </ul>
+
+        <!-- 4. Cognition & Recovery -->
+        <div class="nav-group-label">Mind & Recovery</div>
+        <ul class="nav-list">
+          <li class="nav-item" data-route="learning" onclick="window.app.navigate('learning')">
+            <span class="nav-icon">📖</span><span>17. Learning Tracker</span>
+          </li>
+          <li class="nav-item" data-route="focus" onclick="window.app.navigate('focus')">
+            <span class="nav-icon">🧘</span><span>18. Focus Mode</span>
+          </li>
+          <li class="nav-item" data-route="sleep" onclick="window.app.navigate('sleep')">
+            <span class="nav-icon">🌙</span><span>19. Sleep & Recovery</span>
+          </li>
+          <li class="nav-item" data-route="analytics" onclick="window.app.navigate('analytics')">
+            <span class="nav-icon">📈</span><span>20. Analytics</span>
+          </li>
+        </ul>
+
+        <!-- 5. RPG Gamification -->
+        <div class="nav-group-label">RPG Gamification</div>
+        <ul class="nav-list">
+          <li class="nav-item" data-route="player" onclick="window.app.navigate('player')">
+            <span class="nav-icon">🛡️</span><span>21. Player Status</span>
+          </li>
+          <li class="nav-item" data-route="skilltree" onclick="window.app.navigate('skilltree')">
+            <span class="nav-icon">🌟</span><span>22. Skill Tree</span>
+          </li>
+          <li class="nav-item" data-route="achievements" onclick="window.app.navigate('achievements')">
+            <span class="nav-icon">🏆</span><span>23. Achievements</span>
+          </li>
+          <li class="nav-item" data-route="store" onclick="window.app.navigate('store')">
+            <span class="nav-icon">🛒</span><span>24. Rewards Store</span>
+          </li>
+          <li class="nav-item" data-route="music" onclick="window.musicEngine.togglePlay()">
+            <span class="nav-icon">🎵</span><span>25. Music Player</span>
+          </li>
+        </ul>
+
+        <!-- 6. ALYA AI Companion & 3D -->
+        <div class="nav-group-label">ALYA Companion</div>
+        <ul class="nav-list">
+          <li class="nav-item" data-route="alya-chat" onclick="window.app.navigate('alya-chat')">
+            <span class="nav-icon">💬</span><span>26. ALYA AI</span>
+          </li>
+          <li class="nav-item" data-route="alya-studio" onclick="window.app.navigate('alya-studio')">
+            <span class="nav-icon">🌀</span><span>27. Character Studio (3D)</span>
+          </li>
+          <li class="nav-item" data-route="alya-room" onclick="window.app.navigate('alya-room')">
+            <span class="nav-icon">🛋️</span><span>28. Virtual Room (3D)</span>
+          </li>
+        </ul>
+
+        <!-- 7. Community & System -->
+        <div class="nav-group-label">System</div>
+        <ul class="nav-list">
+          <li class="nav-item" data-route="community" onclick="window.app.navigate('community')">
+            <span class="nav-icon">🌐</span><span>29. Community</span>
+          </li>
+          <li class="nav-item" data-route="notifications" onclick="window.app.navigate('notifications')">
+            <span class="nav-icon">🔔</span><span>30. Notifications</span>
+          </li>
+          <li class="nav-item" data-route="settings" onclick="window.app.navigate('settings')">
+            <span class="nav-icon">⚙️</span><span>31. Settings</span>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- ======================================================================
+         MAIN CONTENT SHELL
+         ====================================================================== -->
+    <main class="ascend-main">
+      <!-- Top Navigation Header -->
+      <header class="ascend-header">
+        <div class="header-left">
+          <div class="header-search">
+            <span class="header-search-icon">🔍</span>
+            <input type="text" placeholder="Search objectives, exercises, skills, or commands..." onkeydown="if(event.key==='Enter') window.app.navigate('tasks')" />
+          </div>
+        </div>
+
+        <div class="header-right">
+          <!-- Voice Command Trigger Pill -->
+          <button class="voice-status-pill" id="voice-status-pill" onclick="window.voiceSystem.toggleListening()">
+            <span style="font-size: 14px;">🎙️</span> ALYA Voice
+          </button>
+
+          <!-- Virtual Currency Display -->
+          <div class="header-currency">
+            <div class="currency-item currency-credits" title="Virtual Credits">
+              <span>🪙</span> <span id="header-user-credits">12,450</span>
+            </div>
+            <div class="currency-item currency-shards" title="Ascend Shards">
+              <span>💎</span> <span id="header-user-shards">850</span>
+            </div>
+          </div>
+
+          <!-- User Profile Button -->
+          <div class="user-profile-btn" onclick="window.app.navigate('player')">
+            <img src="/assets/ascend_showcase_1.jpg" alt="User" class="user-avatar-mini" />
+            <div class="user-meta-mini">
+              <span class="user-name-mini" id="header-user-name">AlexRiser</span>
+              <span class="user-rank-mini" id="header-user-rank">S-RANK • LVL 42</span>
+            </div>
+          </div>
+
+          <button class="cyber-btn btn-secondary cyber-btn-sm" onclick="AuthView.openModal()" style="margin-left: 4px;">Auth</button>
+        </div>
+      </header>
+
+      <!-- Page View Container (Dynamic SPA View Mount) -->
+      <div class="page-container" id="page-container">
+        <!-- Rendered dynamically by view modules -->
+      </div>
+    </main>
+
+    <!-- ======================================================================
+         BOTTOM FLOATING CYBERPUNK MUSIC PLAYER & VISUALIZER
+         ====================================================================== -->
+    <footer class="ascend-music-bar">
+      <div class="track-info">
+        <div class="track-art">🎵</div>
+        <div class="track-details">
+          <div class="track-name" id="music-track-title">Power Run Mix (Momentum)</div>
+          <div class="track-artist" id="music-track-artist">ASCEND Cyberpunk Studio</div>
+        </div>
+      </div>
+
+      <div class="player-controls">
+        <div class="player-buttons">
+          <button style="background:transparent; border:none; color:var(--text-secondary); cursor:pointer; font-size:16px;" onclick="window.musicEngine.prevTrack()">⏮</button>
+          <button class="play-pause-btn" id="music-play-btn" onclick="window.musicEngine.togglePlay()">▶</button>
+          <button style="background:transparent; border:none; color:var(--text-secondary); cursor:pointer; font-size:16px;" onclick="window.musicEngine.nextTrack()">⏭</button>
+        </div>
+
+        <div class="player-progress-bar">
+          <span id="music-current-time">0:00</span>
+          <input type="range" class="seek-slider" id="music-seek-slider" min="0" max="225" value="0" oninput="window.musicEngine.playbackTime = parseInt(this.value);" />
+          <span id="music-duration-time">3:45</span>
+        </div>
+      </div>
+
+      <!-- Real-time Equalizer Audio Visualizer Canvas -->
+      <canvas id="music-visualizer-canvas" class="audio-visualizer-canvas" width="160" height="32"></canvas>
+    </footer>
+  </div>
+
+  <!-- JavaScript Modules -->
+  <script src="/js/api.js"></script>
+  <script src="/js/store.js"></script>
+  <script src="/js/music-player.js"></script>
+  <script src="/js/voice.js"></script>
+  <script src="/js/alya-3d.js"></script>
+  <script src="/js/alya-room.js"></script>
+
+  <!-- Views -->
+  <script src="/js/views/dashboard.js"></script>
+  <script src="/js/views/life-command.js"></script>
+  <script src="/js/views/gym.js"></script>
+  <script src="/js/views/exercises.js"></script>
+  <script src="/js/views/running.js"></script>
+  <script src="/js/views/walking-cycling.js"></script>
+  <script src="/js/views/tasks.js"></script>
+  <script src="/js/views/habits.js"></script>
+  <script src="/js/views/quests.js"></script>
+  <script src="/js/views/player.js"></script>
+  <script src="/js/views/skilltree.js"></script>
+  <script src="/js/views/achievements.js"></script>
+  <script src="/js/views/store-view.js"></script>
+  <script src="/js/views/alya-chat.js"></script>
+  <script src="/js/views/alya-studio.js"></script>
+  <script src="/js/views/alya-room-view.js"></script>
+  <script src="/js/views/calendar.js"></script>
+  <script src="/js/views/focus.js"></script>
+  <script src="/js/views/learning.js"></script>
+  <script src="/js/views/sleep.js"></script>
+  <script src="/js/views/analytics.js"></script>
+  <script src="/js/views/community.js"></script>
+  <script src="/js/views/notifications.js"></script>
+  <script src="/js/views/settings.js"></script>
+  <script src="/js/views/auth.js"></script>
+
+  <!-- App Main Bootstrap -->
+  <script src="/js/app.js"></script>
+</body>
+</html>
